@@ -1,0 +1,73 @@
+/* Dataset additions to the Academic Project Page Template. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; top: -100px; left: 1rem; z-index: 1001; padding: 0.6rem 1rem; background: var(--text-primary); color: white; }
+.skip-link:focus { top: 1rem; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 4px; }
+section[id] { scroll-margin-top: 1.5rem; }
+.site-header { border-bottom: 1px solid var(--border-color); padding: 0 1.5rem; }
+.site-nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 1.5rem; }
+.site-name { color: var(--text-primary); font-size: 1.05rem; font-weight: 800; letter-spacing: -0.03em; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 1.75rem; font-size: 0.875rem; }
+.nav-links a { color: var(--text-secondary); }
+.nav-links a:hover { color: var(--primary-color); }
+.publication-header .hero-body { padding: 5.5rem 1.5rem 5rem; }
+.release-label { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 1.75rem; }
+.release-label span { width: 7px; height: 7px; border-radius: 50%; background: var(--primary-color); flex-shrink: 0; }
+.publication-title { font-size: clamp(3.2rem, 8vw, 5rem) !important; letter-spacing: -0.05em; margin-bottom: 1rem !important; }
+.dataset-subtitle { color: var(--text-secondary); font-size: clamp(1.1rem, 3vw, 1.5rem); }
+.dataset-subtitle strong { color: var(--text-primary); font-weight: 600; }
+.author-placeholder { margin: 1.5rem 0 1.75rem; font-size: 0.9rem; color: var(--text-secondary); }
+.publication-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+.publication-links .button { gap: 0.8rem; padding: 1.35rem 1.3rem; }
+.secondary-button { background: white; border: 1px solid var(--border-color) !important; color: var(--text-primary); }
+.secondary-button:hover { border-color: var(--primary-color) !important; color: var(--primary-color); }
+.hero-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 1.1rem; }
+.section { padding: 4rem 1.5rem; }
+.section-kicker { color: var(--primary-color); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; margin-bottom: 0.8rem; }
+.section .title { color: var(--text-primary); font-weight: 700; letter-spacing: -0.025em; margin-bottom: 1.15rem; }
+.section-description { color: var(--text-secondary); max-width: 46rem; margin-bottom: 1.8rem; line-height: 1.8; }
+.overview-copy { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
+.release-notice { border-left: 3px solid var(--primary-color); padding: 0.7rem 1rem; margin-top: 1.8rem; background: white; }
+.release-notice strong { font-size: 0.9rem; }
+.release-notice p { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem; }
+.dataset-table { margin-top: 1rem; background: transparent; }
+.dataset-table td, .dataset-table th { padding: 1rem 0.5rem; border-color: var(--border-color); vertical-align: middle; }
+.dataset-table th { width: 44%; font-size: 0.925rem; color: var(--text-primary); font-weight: 600; }
+.dataset-table td { font-size: 0.925rem; color: var(--text-primary); }
+.dataset-table td.pending { color: var(--text-secondary); }
+.sample-placeholder { padding: 3rem 1.5rem; text-align: center; background: white; border: 1px dashed #cbd5e1; border-radius: var(--border-radius); }
+.sample-placeholder svg { color: #94a3b8; margin-bottom: 1rem; }
+.sample-placeholder h3 { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.sample-placeholder p { color: var(--text-secondary); font-size: 0.925rem; }
+.access-panel { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin: 1.5rem 0 1rem; }
+.status-tag { display: inline-block; font-size: 0.7rem; color: #1d4ed8; background: #eff6ff; border-radius: 5px; padding: 0.2rem 0.5rem; font-weight: 600; margin-bottom: 0.7rem; }
+.access-panel h3, .resource-row h3 { color: var(--text-primary); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.45rem; }
+.access-panel p, .resource-row p { font-size: 0.925rem; color: var(--text-secondary); max-width: 34rem; }
+.download-pending { flex-shrink: 0; background: var(--background-accent); color: var(--text-secondary); opacity: 1 !important; cursor: not-allowed; }
+.resource-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; border-bottom: 1px solid var(--border-color); padding: 1.5rem 0; }
+.resource-row a { color: var(--primary-color); font-size: 0.9rem; white-space: nowrap; }
+.footer-heading { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; }
+.footer-heading span, .footer > .container > p { font-size: 0.8rem; color: var(--text-secondary); }
+.template-credit { margin-top: 1.5rem; max-width: 50rem; line-height: 1.8; }
+.scroll-to-top { width: 42px; height: 42px; font-size: 1.25rem; }
+@media screen and (max-width: 768px) {
+  .site-header { padding: 0 1rem; }
+  .site-nav { min-height: 68px; gap: 1rem; }
+  .nav-links { gap: 0.9rem; font-size: 0.75rem; }
+  .nav-links a:first-child { display: none; }
+  .publication-header .hero-body { padding: 3.5rem 1rem; }
+  .publication-title { font-size: 3.2rem !important; }
+  .release-label { font-size: 0.7rem; }
+  .section { padding: 2.75rem 1rem; }
+  .dataset-table th { width: 48%; }
+  .dataset-table td, .dataset-table th { font-size: 0.8rem; padding: 0.85rem 0.4rem; }
+  .access-panel, .resource-row { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .access-panel { padding: 1.25rem; }
+  .footer { padding: 2rem 1rem; }
+  .footer-heading { flex-direction: column; gap: 0.3rem; }
+  .scroll-to-top { right: 1rem; bottom: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
