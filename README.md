@@ -39,9 +39,9 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## GitHub Pages
 
-仓库包含 `.nojekyll`，可直接作为 GitHub Pages 静态站点。上传后，在仓库的 **Settings → Pages** 中选择 **Deploy from a branch**，分支选 `main`，目录选 `/ (root)`。
+已启用 GitHub Pages，使用 `main` 分支的根目录 `/`。网页地址：<https://aaahqiu.github.io/XJTU-MPE/>。
 
-按上述方式启用后，预期页面地址为 <https://aaahqiu.github.io/XJTU-MPE/>。
+后续推送到 `main` 分支的页面修改会自动更新。仓库包含 `.nojekyll`，无需额外构建配置。
 
 ## 发布前待补充
 
