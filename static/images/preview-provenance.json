@@ -1,0 +1,28 @@
+{
+  "recording": "900W/1",
+  "retrieved": "2026-10-10",
+  "source_urls": {
+    "event.csv": "https://huggingface.co/datasets/ahqiutkp/XJTU-MPE/resolve/main/data/900W/1/event.csv",
+    "para.csv": "https://huggingface.co/datasets/ahqiutkp/XJTU-MPE/resolve/main/data/900W/1/para.csv",
+    "3dscan.asc": "https://huggingface.co/datasets/ahqiutkp/XJTU-MPE/resolve/main/data/900W/1/3dscan.asc"
+  },
+  "event_byte_range": [
+    90000000,
+    91799999
+  ],
+  "event_window_us": [
+    20460428,
+    20470428
+  ],
+  "event_count": 16740,
+  "parameter_count": 16801,
+  "scan_point_count": 816525,
+  "displayed_scan_point_count": 20414,
+  "scan_sampling": "Every 40th point in file order; original XYZ coordinates, no plane fitting.",
+  "power_conversion": "laser_power multiplied by 6 to match nominal total power in watts.",
+  "sha256": {
+    "event-slice.csv": "f61de42d132d5291716d67b5a4073944996d36ff7aa4923b547eb4f713d3b39d",
+    "para.csv": "87668687ddd0aa687cc3018a4da21e196edef10a426da562fc0239ea6e361441",
+    "3dscan.asc": "97f4749c5fd2e111d31f3f1157524c93e8db52d42e9c92901532be5d139da160"
+  }
+}

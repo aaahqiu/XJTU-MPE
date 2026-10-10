@@ -1,60 +1,69 @@
-# XJTU-MPE
+# XJTU-MPE dataset project page
 
-**XJTU-MPE** 是一个 LWDED 熔池事件数据集。本仓库提供数据集项目页和发布文档的初版。
+XJTU-MPE 是西安交通大学的激光送丝定向能量沉积（LW-DED）熔池事件数据集。该仓库维护静态项目网页；原始数据和模型代码分别托管在 Hugging Face 和 EventDiff 仓库。
 
-> 当前状态：项目页初版。数据文件、样本量、事件类别、作者、下载链接及数据集许可证尚待补充。
+- 项目网页：[aaahqiu.github.io/XJTU-MPE](https://aaahqiu.github.io/XJTU-MPE/)
+- 数据集与完整说明：[ahqiutkp/XJTU-MPE](https://huggingface.co/datasets/ahqiutkp/XJTU-MPE)
+- 模型代码：[aaahqiu/EventDiff](https://github.com/aaahqiu/EventDiff)
 
 ## 页面内容
 
-- 数据集简介（Overview）
-- 数据规格（Dataset）
-- 熔池事件样例（Samples，待补充）
-- 数据下载与文档入口（Access）
-- 正式引用信息（Citation，待补充）
+页面包含数据集介绍、作者与单位、60 次实验记录 / 当前公开 10 次 / 10 种功率条件 / 3 种模态的统计信息、可筛选的采集条件表、实验设备、真实记录的三种数据预览、下载与读取代码、文件字段说明、EventDiff 输入要求、临时 BibTeX 引用和公开联系方式。
 
-页面沿用 Academic Project Page Template 的学术页面布局，支持桌面和手机浏览。未确认的信息明确标注为待发布，下载按钮在提供真实链接前保持禁用。
+2026-10-10 核对 Hugging Face 实际文件目录：每种条件目前仅发布编号 `1` 的记录，共 10 个记录、30 个数据文件，4,134,380,341 字节（约 4.13 GB）。数据集卡描述的 60 次是实验总量，网页分别显示实验总量与已公开数量；后续上传更多数据时应更新公开数量、文件大小和核对日期。
+
+网页沿用原项目页的英文与蓝色学术风格，改用独立 CSS，无前端框架、构建步骤或 CDN 依赖。支持手机布局、键盘操作、标签页切换、代码复制和返回顶部。下载链接和核心内容在关闭 JavaScript 时仍可使用。
 
 ## 本地预览
-
-在仓库根目录运行：
 
 ```bash
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-然后打开 <http://127.0.0.1:8000>。这是静态网页，无需安装前端依赖或构建。
+打开 <http://127.0.0.1:8000>。
 
-## 修改内容
+## 文件说明
 
 | 文件 | 用途 |
 | --- | --- |
-| `index.html` | 数据集名称、简介、作者、统计信息、样例、下载链接和引用 |
-| `static/css/dataset.css` | 数据集页面的补充样式与移动端布局 |
-| `static/css/index.css` | 原模板基础样式 |
-| `static/js/index.js` | 返回顶部交互 |
-| `static/images/dataset-icon.svg` | 项目页面图标 |
-| `DATASET_CARD.md` | 数据集说明与发布准备清单 |
+| `index.html` | 页面内容、数据与代码入口、下载和读取示例、引用 |
+| `static/css/dataset.css` | 页面全部样式与响应式布局 |
+| `static/js/index.js` | 条件筛选、无障碍标签页、复制、返回顶部 |
+| `static/images/*-preview.png` | 从真实 `900W/1` 记录生成的三种预览图 |
+| `static/images/preview-provenance.json` | 图像来源、采样方式、文件哈希和统计信息 |
+| `scripts/generate_previews.py` | 预览图生成脚本（仅维护时使用） |
+| `DATASET_CARD.md` | 已核对的数据摘要、使用方法和重要限制 |
 
-样例图片或视频可放到 `static/images/` 或 `static/videos/`，再替换页面中的样例占位区域。大体积数据文件应使用独立的数据托管服务或下载地址；本仓库当前只包含项目页与文档。
+模板自带的其他 CSS/JS 保留在仓库内，当前页面不加载这些资源。
+
+## 重新生成真实预览
+
+需要 Python、NumPy、pandas 和 matplotlib；这些依赖只用于维护预览图，部署网站不需要安装它们。
+
+准备一个本地目录，包含以下来自 `data/900W/1/` 的文件：
+
+- `para.csv`：完整参数文件。
+- `3dscan.asc`：完整扫描文件。
+- `event-slice.csv`：`event.csv` 的字节范围 `90000000–91799999`（含端点）。脚本丢弃两端不完整的行，取首个完整事件开始的 10 ms 窗口。
+
+```bash
+python scripts/generate_previews.py /path/to/downloaded-preview-data
+```
+
+脚本输出 PNG 和来源 JSON 到 `static/images/`。默认复现当前页面的 900 W 样例；若更换记录或采样窗口，应同步更新网页图片说明和来源记录。不要将原始大体积数据提交到此网页仓库。
 
 ## GitHub Pages
 
-已启用 GitHub Pages，使用 `main` 分支的根目录 `/`。网页地址：<https://aaahqiu.github.io/XJTU-MPE/>。
+使用现有 GitHub Pages：`main` 分支、根目录 `/`，保留 `.nojekyll`。推送页面修改后自动更新 <https://aaahqiu.github.io/XJTU-MPE/>。
 
-后续推送到 `main` 分支的页面修改会自动更新。仓库包含 `.nojekyll`，无需额外构建配置。
+## 数据与实现的关系
 
-## 发布前待补充
+Hugging Face 发布 `event.csv`、`para.csv`、`3dscan.asc`。EventDiff 训练使用 `voxel_grid.npy` 和 `laser_power_per_frame.npy`，默认还需要 EventVAE 权重。应先按研究设置预处理原始数据，不应将 CSV/ASC 直接传入模型训练入口。`main` 分支维护核心训练与评估；`exp` 分支维护论文实验。
 
-- [ ] 作者、单位与联系方式
-- [ ] 研究背景和适用任务
-- [ ] 数据采集方式、文件格式和目录结构
-- [ ] 事件类别、标注规范、样本量和数据划分
-- [ ] 真实样例与下载链接
-- [ ] 数据集许可证和使用条件
-- [ ] 正式引用 / BibTeX
+引用暂用数据集卡提供的 `@unpublished{tan2026processconditioned}`；论文正式出版后再更新 venue、DOI 与论文链接。
 
 ## 致谢与许可证
 
-项目页基于 [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template)，其部分设计来自 [Nerfies](https://nerfies.github.io/)。保留原模板署名；网站模板采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可证。
+项目页改编自 [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template) 和 [Nerfies](https://nerfies.github.io/)，保留原模板署名；网页模板采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。
 
-**网站模板的许可证不代表数据集许可证。** XJTU-MPE 数据集的许可证将在正式发布前另行公布。
+数据集的 Hugging Face 元数据当前标记为 MIT。网页模板许可证与数据集许可证分别适用；数据集许可信息以 [Hugging Face 数据集卡](https://huggingface.co/datasets/ahqiutkp/XJTU-MPE) 为准。
